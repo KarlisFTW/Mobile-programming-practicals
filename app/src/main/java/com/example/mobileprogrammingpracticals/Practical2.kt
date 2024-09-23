@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
-class Practical2: AppCompatActivity() {
+class Practical2 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
     lateinit var nextActivity: Button
     lateinit var openDialog: Button
@@ -31,27 +31,26 @@ class Practical2: AppCompatActivity() {
         }
 
     }
+
     private fun showAlertDialog() {
-        // Inflate the custom layout
         val dialogView = layoutInflater.inflate(R.layout.custom_dialog, null)
 
-        // Create the AlertDialog Builder
         val builder = AlertDialog.Builder(this)
 
-        // Set the custom view for the AlertDialog
         builder.setView(dialogView)
         val dialog = builder.create()
-        // Find views in the dialog layout
         val checkbox1 = dialogView.findViewById<CheckBox>(R.id.cb_member_1)
+        val checkbox2 = dialogView.findViewById<CheckBox>(R.id.cb_member_2)
+        val checkbox3 = dialogView.findViewById<CheckBox>(R.id.cb_member_3)
 
         checkbox1.setOnClickListener {
             showToast("${checkbox1.text} {${checkbox1.isChecked}}")
         }
-        val checkbox2 = dialogView.findViewById<CheckBox>(R.id.cb_member_2)
+
         checkbox2.setOnClickListener {
             showToast("${checkbox2.text} {${checkbox2.isChecked}}")
         }
-        val checkbox3 = dialogView.findViewById<CheckBox>(R.id.cb_member_3)
+
         checkbox3.setOnClickListener {
             showToast("${checkbox3.text} {${checkbox3.isChecked}}")
         }
@@ -64,13 +63,14 @@ class Practical2: AppCompatActivity() {
         }
 
         closeButton.setOnClickListener {
-            dialog.dismiss()
             showToast("You clicked Close!")
+            dialog.dismiss()
+
         }
         dialog.show()
     }
 
-    private fun showToast(message: String){
+    private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
     }
