@@ -15,7 +15,7 @@
         android:id="@+id/bt_go_back_to_first_activity"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Back"
+        android:text="@string/button_back_label"
         android:theme="@style/buttonViewStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

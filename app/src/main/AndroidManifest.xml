@@ -11,6 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileProgrammingPracticals"
-        tools:targetApi="31" />
+        tools:targetApi="31">
 
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Practical1" />
+        <activity android:name=".Practical2" />
+        <activity android:name=".Practical2_1" />
+        <activity android:name=".Practical3" />
+        <activity android:name=".Practical3_1" />
+        <activity android:name=".Practical4" />
+
+    </application>
 </manifest>

@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Mobile programming practicals</string>
+    <string name="button_back_label">Back</string>
+    <string name="practical3_toolbar_title">Repository G-05</string>
+    <string name="practical3_1_toolbar_title">Second Activity</string>
+    <string name="practical4_toolbar_title">Calculator</string>
+    <string name="practical2_1_toolbar_title">2nd Activity</string>
+    <string name="practical2_toolbar_title">1-st Activity</string>
+    <string name="practical1_toolbar_title">Hello World</string>
+    <string name="main_toolbar_title">Mobile Programming I</string>
+    <string name="practicals_label">Practicals</string>
+    <string name="practical_1_button_label">Practical 1</string>
+    <string name="practical_2_button_label">Practical 2</string>
+    <string name="practical_3_button_label">Practical 3</string>
+    <string name="practical_4_button_label">Practical 4</string>
+    <string name="this_is_the_first_application_from_group_5_label">This is the first application from group 5</string>
+    <string name="group_member_name_surname">Kārlis Griģis 1</string>
+    <string name="the_application_was_developed_by_karlis_grigis_label">The application was developed by Kārlis Griģis</string>
+    <string name="go_to_2_nd_activity_button_label">Go to 2-nd</string>
+    <string name="theme_dialog_button_label">Dialog</string>
+    <string name="save_to_preferences_button_label">Save</string>
+    <string name="saved_text_goes_here_hint">Saved text goes here</string>
+    <string name="read_preferences_button_label">Read Preferences</string>
 </resources>

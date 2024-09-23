@@ -3,17 +3,20 @@ package com.example.mobileprogrammingpracticals
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class Practical2_1 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
+    lateinit var toolbarText: TextView
     lateinit var goBack: Button
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical2_1)
         toolbar = findViewById(R.id.tb_main)
-        toolbar.title = "2nd Activity"
+        toolbarText=findViewById(R.id.tb_title_text)
+        toolbarText.text = getString(R.string.practical2_1_toolbar_title)
         goBack = findViewById(R.id.bt_go_back_to_first_activity)
         goBack.setOnClickListener {
             finish()

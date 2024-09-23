@@ -6,20 +6,23 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class Practical2 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
+    lateinit var toolbarText: TextView
     lateinit var nextActivity: Button
     lateinit var openDialog: Button
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical2)
         toolbar = findViewById(R.id.tb_main)
-        toolbar.title = "1-st Activity"
+        toolbarText=findViewById(R.id.tb_title_text)
+        toolbarText.text = getString(R.string.practical2_toolbar_title)
         nextActivity = findViewById(R.id.bt_go_to_2nd_activity)
         openDialog = findViewById(R.id.bt_open_dialog)
         nextActivity.setOnClickListener {
@@ -29,7 +32,10 @@ class Practical2 : AppCompatActivity() {
         openDialog.setOnClickListener {
             showAlertDialog()
         }
-
+        toolbar.setNavigationIcon(R.drawable.toolbar_navigation_back)
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 
     private fun showAlertDialog() {
@@ -44,15 +50,28 @@ class Practical2 : AppCompatActivity() {
         val checkbox3 = dialogView.findViewById<CheckBox>(R.id.cb_member_3)
 
         checkbox1.setOnClickListener {
-            showToast("${checkbox1.text} {${checkbox1.isChecked}}")
+            if(checkbox1.isChecked){
+                showToast("${checkbox1.text} checked")
+            }else {
+                showToast("${checkbox1.text} unchecked")
+            }
+
         }
 
         checkbox2.setOnClickListener {
-            showToast("${checkbox2.text} {${checkbox2.isChecked}}")
+            if(checkbox2.isChecked){
+                showToast("${checkbox2.text} checked")
+            }else {
+                showToast("${checkbox2.text} unchecked")
+            }
         }
 
         checkbox3.setOnClickListener {
-            showToast("${checkbox3.text} {${checkbox3.isChecked}}")
+            if(checkbox3.isChecked){
+                showToast("${checkbox3.text} checked")
+            }else {
+                showToast("${checkbox3.text} unchecked")
+            }
         }
         val closeButton = dialogView.findViewById<Button>(R.id.bt_close)
         val okButton = dialogView.findViewById<Button>(R.id.bt_ok)
