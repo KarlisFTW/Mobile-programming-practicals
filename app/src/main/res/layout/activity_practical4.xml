@@ -1,15 +1,212 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black2"
+    android:padding="16dp">
 
     <include
-        android:id="@+id/tb_practical3_second_activity"
+        android:id="@+id/tb_practical2_first_activity"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_show_result_process"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/border"
+        android:gravity="end"
+        android:padding="25dp"
+        android:text="0"
+        android:textSize="32sp"
+        android:textColor="@color/white"
+
+        android:backgroundTint="@color/green"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:backgroundTint="@color/green"
+        android:columnCount="4"
+        android:rowCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_max="wrap"
+        app:layout_constraintWidth_percent="0.9">
+
+        <!-- Buttons for digits, operations, and memory functions -->
+        <Button
+            android:layout_width="75dp"
+            android:onClick="onMemorySave"
+            android:text="MS"
+            android:theme="@style/calculatorUniqueButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:onClick="onMemoryRead"
+            android:text="MR"
+            android:theme="@style/calculatorUniqueButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:onClick="onMemoryClear"
+            android:text="MC"
+            android:theme="@style/calculatorUniqueButtonViewStyle" />
+
+        <Button
+            android:backgroundTint="@color/black2"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:layout_width="75dp"
+            android:onClick="onFullDeleteClick"
+            android:text="AC"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+
+        <Button
+            android:gravity="center"
+            android:layout_width="75dp"
+            android:onClick="onLastDeleteClick"
+            android:text="Delete"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+        <Button
+            android:onClick="onEnterClick"
+            android:layout_width="75dp"
+            android:text="Enter"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+
+        <Button
+            android:hint="/"
+            android:onClick="onOperatorClick"
+            android:textStyle="bold"
+            android:text="/"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="7"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="8"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="9"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+
+        <Button
+            android:hint="*"
+            android:onClick="onOperatorClick"
+            android:text="*"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="4"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="5"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="6"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:hint="-"
+            android:onClick="onOperatorClick"
+            android:text="-"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="1"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="2"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="3"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:hint="+"
+            android:onClick="onOperatorClick"
+            android:text="+"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+
+        <Button
+            android:backgroundTint="@color/black2"
+            android:layout_width="75dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onDigitClick"
+            android:text="0"
+            android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:layout_width="75dp"
+            android:gravity="center"
+            android:onClick="onOperatorClick"
+            android:text="."
+            android:hint="." android:theme="@style/calculatorDigitButtonViewStyle" />
+
+        <Button
+            android:hint="%"
+            android:onClick="onOperatorClick"
+            android:layout_width="90dp"
+            android:text="%"
+            android:theme="@style/calculatorOperatorButtonViewStyle" />
+
+
+        <!-- Memory buttons -->
+
+
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

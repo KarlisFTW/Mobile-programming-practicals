@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
@@ -20,6 +21,7 @@ class Practical3 : AppCompatActivity() {
     lateinit var inputText: EditText
     lateinit var nextActivity: Button
     lateinit var saveText: Button
+    lateinit var resetPreference: Button
     lateinit var chooseTheme: Spinner
     var selectedTheme = "Default"
     //val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
@@ -28,15 +30,19 @@ class Practical3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical3)
         toolbar = findViewById(R.id.tb_main)
-        toolbarText=findViewById(R.id.tb_title_text)
+        toolbarText = findViewById(R.id.tb_title_text)
         toolbarText.text = getString(R.string.practical3_toolbar_title)
         inputText = findViewById(R.id.et_input_text)
         nextActivity = findViewById(R.id.bt_go_to_next_activity)
         saveText = findViewById(R.id.bt_save_text)
         chooseTheme = findViewById(R.id.sp_themes)
+        resetPreference = findViewById(R.id.bt_reset_preferences)
         nextActivity.setOnClickListener {
             val intent = Intent(this, Practical3_1::class.java)
             startActivity(intent)
+        }
+        resetPreference.setOnClickListener {
+            resetPreferences()
         }
         saveText.setOnClickListener {
             saveText()
@@ -55,13 +61,16 @@ class Practical3 : AppCompatActivity() {
         val editor = sharedPrefs.edit()
         editor.putString("inputText", inputText.text.toString())
         editor.apply()
+        showToast(inputText.text.toString() + " Text saved!")
     }
 
     private fun checkIfTextExists() {
         val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val savedText = sharedPrefs.getString("inputText", "")
-        if (savedText != null) {
-            inputText.hint = savedText
+        if (savedText != null && savedText != "") {
+            inputText.hint = "Saved text: $savedText"
+        }else{
+            inputText.hint = "Input text:"
         }
     }
 
@@ -94,5 +103,19 @@ class Practical3 : AppCompatActivity() {
             }
         }
     }
+
+    private fun resetPreferences() {
+        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val editor = sharedPrefs.edit()
+        editor.remove("inputText")
+        editor.apply()
+        showToast("Preferences reset!")
+        inputText.hint = "Input text"
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
 
 }

@@ -40,12 +40,16 @@ class Practical3_1: AppCompatActivity() {
     private fun checkPreferences(){
         val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         val savedText = sharedPrefs.getString("inputText", "")
-        if(savedText != null){
+        if(savedText != null && savedText != ""){
             preferenceText.text = savedText.toString()
+            showToast("Saved text retrieved successfully!")
         }else{
-            Toast.makeText(this, "No text found", Toast.LENGTH_SHORT).show()
+           showToast("No text found")
         }
 
 
+    }
+    private fun showToast(message:String){
+        Toast.makeText(this,message,Toast.LENGTH_SHORT).show()
     }
 }

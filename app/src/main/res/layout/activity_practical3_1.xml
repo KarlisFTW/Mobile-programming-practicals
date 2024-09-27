@@ -20,6 +20,7 @@
         android:gravity="center"
         android:hint="@string/saved_text_goes_here_hint"
         android:background="@drawable/border"
+        android:theme="@style/regularTextViewStyle"
         app:layout_constraintBottom_toTopOf="@+id/bt_read_preferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

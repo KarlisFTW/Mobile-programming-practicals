@@ -19,33 +19,38 @@
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        app:dividerColor="@color/white"/>
+        app:dividerColor="@color/green"/>
 
     <CheckBox
-        android:layout_marginTop="16dp"
         android:id="@+id/cb_member_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:minHeight="48dp"
         android:text="Kārlis Griģis"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        />
+        android:theme="@style/checkBoxStyle" />
+
     <CheckBox
         android:id="@+id/cb_member_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="Kārlis G."
         android:textColor="#ffffff"
         android:textSize="24sp"
-        />
+        android:theme="@style/checkBoxStyle" />
+
     <CheckBox
         android:id="@+id/cb_member_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="K. Griģis"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        />
+        android:theme="@style/checkBoxStyle" />
 
     <LinearLayout
         android:layout_width="match_parent"
