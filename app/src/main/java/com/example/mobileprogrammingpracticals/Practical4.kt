@@ -82,7 +82,10 @@ class Practical4 : AppCompatActivity() {
     fun onMemoryRead(view: android.view.View) {
         try {
             resultTextView.append(getValueFromPreferences())
-            toast("Text read")
+            if(resultTextView.text.isNotEmpty()){
+                toast("Text read")
+            }
+
         } catch (e: Exception) {
             toast("No text found")
         }
