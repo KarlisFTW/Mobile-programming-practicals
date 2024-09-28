@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         practical2 = findViewById(R.id.bt_practical_2)
         practical3 = findViewById(R.id.bt_practical_3)
         practical4 = findViewById(R.id.bt_practical_4)
-        toolbar=findViewById(R.id.tb_main)
-        toolbarText=findViewById(R.id.tb_title_text)
+        toolbar = findViewById(R.id.tb_main)
+        toolbarText = findViewById(R.id.tb_title_text)
         toolbarText.text = getString(R.string.main_toolbar_title)
 
 

@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/black2"
+    android:orientation="vertical"
     android:padding="16dp">
 
     <include
@@ -20,13 +20,13 @@
         android:layout_height="100dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/border"
+        android:backgroundTint="@color/green"
         android:gravity="end"
         android:padding="25dp"
         android:text="0"
-        android:textSize="32sp"
         android:textColor="@color/white"
 
-        android:backgroundTint="@color/green"
+        android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -76,22 +76,23 @@
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
-            android:gravity="center"
             android:layout_width="75dp"
+            android:gravity="center"
             android:onClick="onLastDeleteClick"
             android:text="Delete"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
+
         <Button
-            android:onClick="onEnterClick"
             android:layout_width="75dp"
+            android:onClick="onEnterClick"
             android:text="Enter"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
             android:hint="/"
             android:onClick="onOperatorClick"
-            android:textStyle="bold"
             android:text="/"
+            android:textStyle="bold"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
@@ -178,8 +179,8 @@
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
-            android:backgroundTint="@color/black2"
             android:layout_width="75dp"
+            android:backgroundTint="@color/black2"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
@@ -192,14 +193,15 @@
         <Button
             android:layout_width="75dp"
             android:gravity="center"
+            android:hint="."
             android:onClick="onOperatorClick"
             android:text="."
-            android:hint="." android:theme="@style/calculatorDigitButtonViewStyle" />
+            android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
+            android:layout_width="90dp"
             android:hint="%"
             android:onClick="onOperatorClick"
-            android:layout_width="90dp"
             android:text="%"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 

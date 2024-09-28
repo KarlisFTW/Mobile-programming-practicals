@@ -3,7 +3,6 @@ package com.example.mobileprogrammingpracticals
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.TextView
@@ -21,7 +20,7 @@ class Practical2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical2)
         toolbar = findViewById(R.id.tb_main)
-        toolbarText=findViewById(R.id.tb_title_text)
+        toolbarText = findViewById(R.id.tb_title_text)
         toolbarText.text = getString(R.string.practical2_toolbar_title)
         nextActivity = findViewById(R.id.bt_go_to_2nd_activity)
         openDialog = findViewById(R.id.bt_open_dialog)
@@ -50,26 +49,26 @@ class Practical2 : AppCompatActivity() {
         val checkbox3 = dialogView.findViewById<CheckBox>(R.id.cb_member_3)
 
         checkbox1.setOnClickListener {
-            if(checkbox1.isChecked){
+            if (checkbox1.isChecked) {
                 showToast("${checkbox1.text} checked")
-            }else {
+            } else {
                 showToast("${checkbox1.text} unchecked")
             }
 
         }
 
         checkbox2.setOnClickListener {
-            if(checkbox2.isChecked){
+            if (checkbox2.isChecked) {
                 showToast("${checkbox2.text} checked")
-            }else {
+            } else {
                 showToast("${checkbox2.text} unchecked")
             }
         }
 
         checkbox3.setOnClickListener {
-            if(checkbox3.isChecked){
+            if (checkbox3.isChecked) {
                 showToast("${checkbox3.text} checked")
-            }else {
+            } else {
                 showToast("${checkbox3.text} unchecked")
             }
         }

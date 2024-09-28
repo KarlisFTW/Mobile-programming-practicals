@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#000000"
     android:orientation="vertical"
     android:padding="16dp">
@@ -11,15 +11,16 @@
         android:id="@+id/tv_dialog_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
         android:layout_gravity="center_horizontal"
+        android:paddingBottom="8dp"
         android:text="5th Group's Dialog"
         android:textColor="@color/white"
         android:textSize="20sp" />
+
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        app:dividerColor="@color/green"/>
+        app:dividerColor="@color/green" />
 
     <CheckBox
         android:id="@+id/cb_member_1"
@@ -63,15 +64,15 @@
             android:id="@+id/bt_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Close"
-            android:background="@color/purple_200"/>
+            android:background="@color/purple_200"
+            android:text="Close" />
 
         <Button
             android:id="@+id/bt_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="OK"
-            android:background="@color/purple_200"/>
+            android:background="@color/purple_200"
+            android:text="OK" />
     </LinearLayout>
 </LinearLayout>

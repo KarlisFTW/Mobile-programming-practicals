@@ -1,8 +1,6 @@
 package com.example.mobileprogrammingpracticals
 
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -82,7 +80,7 @@ class Practical4 : AppCompatActivity() {
     fun onMemoryRead(view: android.view.View) {
         try {
             resultTextView.append(getValueFromPreferences())
-            if(resultTextView.text.isNotEmpty()){
+            if (resultTextView.text.isNotEmpty()) {
                 toast("Text read")
             }
 

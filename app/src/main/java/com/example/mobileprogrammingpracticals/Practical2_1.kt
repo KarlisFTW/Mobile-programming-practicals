@@ -1,7 +1,6 @@
 package com.example.mobileprogrammingpracticals
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +14,7 @@ class Practical2_1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical2_1)
         toolbar = findViewById(R.id.tb_main)
-        toolbarText=findViewById(R.id.tb_title_text)
+        toolbarText = findViewById(R.id.tb_title_text)
         toolbarText.text = getString(R.string.practical2_1_toolbar_title)
         goBack = findViewById(R.id.bt_go_back_to_first_activity)
         goBack.setOnClickListener {

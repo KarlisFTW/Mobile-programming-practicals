@@ -2,7 +2,6 @@ package com.example.mobileprogrammingpracticals
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -69,7 +68,7 @@ class Practical3 : AppCompatActivity() {
         val savedText = sharedPrefs.getString("inputText", "")
         if (savedText != null && savedText != "") {
             inputText.hint = "Saved text: $savedText"
-        }else{
+        } else {
             inputText.hint = "Input text:"
         }
     }
