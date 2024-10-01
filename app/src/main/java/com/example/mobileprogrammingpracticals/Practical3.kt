@@ -16,14 +16,13 @@ import androidx.appcompat.widget.Toolbar
 
 class Practical3 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
-    lateinit var toolbarText: TextView
-    lateinit var inputText: EditText
-    lateinit var nextActivity: Button
-    lateinit var saveText: Button
-    lateinit var resetPreference: Button
-    lateinit var chooseTheme: Spinner
-    var selectedTheme = "Default"
-    //val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+    private lateinit var toolbarText: TextView
+    private lateinit var inputText: EditText
+    private lateinit var nextActivity: Button
+    private lateinit var saveText: Button
+    private lateinit var resetPreference: Button
+    private lateinit var chooseTheme: Spinner
+    private lateinit var selectedTheme : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +35,7 @@ class Practical3 : AppCompatActivity() {
         saveText = findViewById(R.id.bt_save_text)
         chooseTheme = findViewById(R.id.sp_themes)
         resetPreference = findViewById(R.id.bt_reset_preferences)
+        selectedTheme = getString(R.string.default_label)
         nextActivity.setOnClickListener {
             val intent = Intent(this, Practical3_1::class.java)
             startActivity(intent)
@@ -56,25 +56,26 @@ class Practical3 : AppCompatActivity() {
     }
 
     private fun saveText() {
-        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val sharedPrefs = getSharedPreferences(getString(R.string.myprefs_label), MODE_PRIVATE)
         val editor = sharedPrefs.edit()
-        editor.putString("inputText", inputText.text.toString())
+        editor.putString(getString(R.string.inputtext_editor_label), inputText.text.toString())
         editor.apply()
-        showToast(inputText.text.toString() + " Text saved!")
+        showToast(inputText.text.toString() + getString(R.string.text_saved_text))
     }
 
     private fun checkIfTextExists() {
-        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-        val savedText = sharedPrefs.getString("inputText", "")
+        val sharedPrefs = getSharedPreferences(getString(R.string.myprefs_label), MODE_PRIVATE)
+        val savedText = sharedPrefs.getString(getString(R.string.inputtext_editor_label), "")
         if (savedText != null && savedText != "") {
-            inputText.hint = "Saved text: $savedText"
+            inputText.hint = getString(R.string.text_saved_text) + ": $savedText"
         } else {
-            inputText.hint = "Input text:"
+            inputText.hint = getString(R.string.input_text_with_colon)
         }
     }
 
     private fun setUpSpinner() {
-        val option = arrayOf("Default", "Dark Theme", "Light Theme")
+        val option = arrayOf(getString(R.string.default_label),
+            getString(R.string.dark_theme_label), getString(R.string.light_theme_label))
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, option)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         chooseTheme.adapter = adapter
@@ -104,12 +105,12 @@ class Practical3 : AppCompatActivity() {
     }
 
     private fun resetPreferences() {
-        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val sharedPrefs = getSharedPreferences(getString(R.string.myprefs_label), MODE_PRIVATE)
         val editor = sharedPrefs.edit()
-        editor.remove("inputText")
+        editor.remove(getString(R.string.inputtext_editor_label))
         editor.apply()
-        showToast("Preferences reset!")
-        inputText.hint = "Input text"
+        showToast(getString(R.string.preferences_reset_textt))
+        inputText.hint = getString(R.string.input_text_with_colon)
     }
 
     private fun showToast(message: String) {

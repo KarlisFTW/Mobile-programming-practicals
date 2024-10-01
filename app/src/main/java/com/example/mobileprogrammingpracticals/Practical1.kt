@@ -7,7 +7,7 @@ import androidx.appcompat.widget.Toolbar
 
 class Practical1 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
-    lateinit var toolbarText: TextView
+    private lateinit var toolbarText: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical1)

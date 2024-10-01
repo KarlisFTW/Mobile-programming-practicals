@@ -8,12 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
-    lateinit var practical1: Button
-    lateinit var practical2: Button
-    lateinit var practical3: Button
-    lateinit var practical4: Button
+   private lateinit var practical1: Button
+    private lateinit var practical2: Button
+    private lateinit var practical3: Button
+    private  lateinit var practical4: Button
     lateinit var toolbar: Toolbar
-    lateinit var toolbarText: TextView
+    private lateinit var toolbarText: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

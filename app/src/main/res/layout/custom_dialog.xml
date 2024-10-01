@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#000000"
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="8dp"
-        android:text="5th Group's Dialog"
+        android:text="@string/dialog_title"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
@@ -28,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:minHeight="48dp"
-        android:text="Kārlis Griģis"
+        android:text="@string/checkbox_placeholder_1"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:theme="@style/checkBoxStyle" />
@@ -38,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="Kārlis G."
+        android:text="@string/checkbox_placeholder_2"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:theme="@style/checkBoxStyle" />
@@ -48,12 +49,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="K. Griģis"
+        android:text="@string/checkbox_placeholder_3"
         android:textColor="#ffffff"
         android:textSize="24sp"
         android:theme="@style/checkBoxStyle" />
 
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
@@ -65,7 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/purple_200"
-            android:text="Close" />
+            android:text="@string/close_button_label"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/bt_ok"
@@ -73,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:background="@color/purple_200"
-            android:text="OK" />
+            android:text="@string/ok_button_label"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 </LinearLayout>

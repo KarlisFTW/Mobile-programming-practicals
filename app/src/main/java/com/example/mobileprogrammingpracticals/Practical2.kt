@@ -12,9 +12,9 @@ import androidx.appcompat.widget.Toolbar
 
 class Practical2 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
-    lateinit var toolbarText: TextView
-    lateinit var nextActivity: Button
-    lateinit var openDialog: Button
+    private lateinit var toolbarText: TextView
+    private lateinit var nextActivity: Button
+    private lateinit var openDialog: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,26 +50,26 @@ class Practical2 : AppCompatActivity() {
 
         checkbox1.setOnClickListener {
             if (checkbox1.isChecked) {
-                showToast("${checkbox1.text} checked")
+                showToast(getString(R.string.checked_label, checkbox1.text))
             } else {
-                showToast("${checkbox1.text} unchecked")
+                showToast(getString(R.string.unchecked_label, checkbox1.text))
             }
 
         }
 
         checkbox2.setOnClickListener {
             if (checkbox2.isChecked) {
-                showToast("${checkbox2.text} checked")
+                showToast(getString(R.string.checked_label, checkbox2.text))
             } else {
-                showToast("${checkbox2.text} unchecked")
+                showToast(getString(R.string.unchecked_label, checkbox2.text))
             }
         }
 
         checkbox3.setOnClickListener {
             if (checkbox3.isChecked) {
-                showToast("${checkbox3.text} checked")
+                showToast(getString(R.string.checked_label, checkbox3.text))
             } else {
-                showToast("${checkbox3.text} unchecked")
+                showToast(getString(R.string.unchecked_label, checkbox3.text))
             }
         }
         val closeButton = dialogView.findViewById<Button>(R.id.bt_close)
@@ -77,11 +77,11 @@ class Practical2 : AppCompatActivity() {
 
         // Set up the button listeners
         okButton.setOnClickListener {
-            showToast("You clicked OK!")
+            showToast(getString(R.string.you_clicked_ok_text))
         }
 
         closeButton.setOnClickListener {
-            showToast("You clicked Close!")
+            showToast(getString(R.string.you_clicked_close_text))
             dialog.dismiss()
 
         }

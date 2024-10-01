@@ -8,12 +8,9 @@ import androidx.appcompat.widget.Toolbar
 import net.objecthunter.exp4j.ExpressionBuilder
 
 class Practical4 : AppCompatActivity() {
-    private var memory: Double? = null
-    private var currentOperator: String? = null
-    private var currentValue: Double = 0.0
     private lateinit var resultTextView: TextView
     lateinit var toolbar: Toolbar
-    lateinit var toolbarText: TextView
+    private lateinit var toolbarText: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical4)
@@ -31,13 +28,13 @@ class Practical4 : AppCompatActivity() {
     fun onDigitClick(view: android.view.View) {
         val digit = (view as android.widget.Button).text.toString()
         val currentText = resultTextView.text.toString()
-        val newText = if (currentText == "0") digit else currentText + digit
+        val newText = if (currentText == getString(R.string.zero)) digit else currentText + digit
         resultTextView.text = newText
 
     }
 
     fun onOperatorClick(view: android.view.View) {
-        val operator = (view as android.widget.Button).hint.toString()
+        val operator = (view as android.widget.Button).text.toString()
         if (resultTextView.text.isNotEmpty()) {
             resultTextView.append(operator)
         }
@@ -49,7 +46,7 @@ class Practical4 : AppCompatActivity() {
             val result = ExpressionBuilder(expression).build().evaluate()
             resultTextView.text = result.toString()
         } catch (e: Exception) {
-            resultTextView.text = "Error"
+            resultTextView.text = getString(R.string.error_label)
         }
     }
 
@@ -57,7 +54,7 @@ class Practical4 : AppCompatActivity() {
         val currentText = resultTextView.text.toString()
         if (currentText.isNotEmpty()) {
             val newText = currentText.substring(0, currentText.length - 1)
-            resultTextView.text = newText.ifEmpty { "0" }
+            resultTextView.text = newText.ifEmpty { getString(R.string.zero) }
         }
     }
 
@@ -70,9 +67,9 @@ class Practical4 : AppCompatActivity() {
     fun onMemorySave(view: android.view.View) {
         try {
             saveValueToPreferences(resultTextView.text.toString())
-            toast("Text saved")
+            toast(getString(R.string.text_saved_text))
         } catch (e: Exception) {
-            toast("No text found")
+            toast(getString(R.string.no_text_found_text))
         }
 
     }
@@ -81,50 +78,50 @@ class Practical4 : AppCompatActivity() {
         try {
             resultTextView.append(getValueFromPreferences())
             if (resultTextView.text.isNotEmpty()) {
-                toast("Text read")
+                toast(getString(R.string.text_read_text))
             }
 
         } catch (e: Exception) {
-            toast("No text found")
+            toast(getString(R.string.no_text_found_text))
         }
     }
 
     fun onMemoryClear(view: android.view.View) {
         try {
             deleteValueFromPreferences()
-            toast("Text deleted")
+            toast(getString(R.string.text_deleted_text))
         } catch (e: Exception) {
-            toast("No text found")
+            toast(getString(R.string.no_text_found_text))
         }
     }
 
     private fun getValueFromPreferences(): String? {
-        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-        val savedText = sharedPrefs.getString("savedValue", "")
+        val sharedPrefs = getSharedPreferences(getString(R.string.myprefs_label), MODE_PRIVATE)
+        val savedText = sharedPrefs.getString(getString(R.string.savedvalue_editor_label), "")
         if (savedText != null) {
             return savedText.toString()
         } else {
-            toast("No text found")
+            toast(getString(R.string.no_text_found_text))
             return null
         }
     }
 
     private fun saveValueToPreferences(value: String) {
-        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val sharedPrefs = getSharedPreferences(getString(R.string.myprefs_label), MODE_PRIVATE)
         val editor = sharedPrefs.edit()
-        editor.putString("savedValue", value)
+        editor.putString(getString(R.string.savedvalue_editor_label), value)
         editor.apply()
 
     }
 
     private fun deleteValueFromPreferences() {
-        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+        val sharedPrefs = getSharedPreferences(getString(R.string.myprefs_label), MODE_PRIVATE)
         val editor = sharedPrefs.edit()
         if (editor != null) {
-            editor.remove("savedValue")
+            editor.remove(getString(R.string.savedvalue_editor_label))
             editor.apply()
         } else {
-            toast("No text found")
+            toast(getString(R.string.no_text_found_text))
         }
 
     }

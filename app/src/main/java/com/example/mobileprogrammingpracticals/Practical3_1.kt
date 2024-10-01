@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class Practical3_1 : AppCompatActivity() {
-    lateinit var backButton: Button
+    private lateinit var backButton: Button
     lateinit var toolbar: Toolbar
-    lateinit var toolbarText: TextView
-    lateinit var preferenceText: TextView
-    lateinit var showPreferenceValue: Button
+    private lateinit var toolbarText: TextView
+    private lateinit var preferenceText: TextView
+    private lateinit var showPreferenceValue: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical3_1)
@@ -36,13 +36,13 @@ class Practical3_1 : AppCompatActivity() {
     }
 
     private fun checkPreferences() {
-        val sharedPrefs = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-        val savedText = sharedPrefs.getString("inputText", "")
+        val sharedPrefs = getSharedPreferences(getString(R.string.myprefs_label), MODE_PRIVATE)
+        val savedText = sharedPrefs.getString(getString(R.string.inputtext_editor_label), "")
         if (savedText != null && savedText != "") {
             preferenceText.text = savedText.toString()
-            showToast("Saved text retrieved successfully!")
+            showToast(getString(R.string.saved_text_retrieved_successfully_text))
         } else {
-            showToast("No text found")
+            showToast(getString(R.string.no_text_found_text))
         }
 
 

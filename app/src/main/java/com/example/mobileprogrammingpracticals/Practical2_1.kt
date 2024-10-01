@@ -8,8 +8,8 @@ import androidx.appcompat.widget.Toolbar
 
 class Practical2_1 : AppCompatActivity() {
     lateinit var toolbar: Toolbar
-    lateinit var toolbarText: TextView
-    lateinit var goBack: Button
+    private lateinit var toolbarText: TextView
+    private lateinit var goBack: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical2_1)

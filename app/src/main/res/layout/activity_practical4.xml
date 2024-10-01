@@ -50,19 +50,19 @@
         <Button
             android:layout_width="75dp"
             android:onClick="onMemorySave"
-            android:text="MS"
+            android:text="@string/memory_save_label"
             android:theme="@style/calculatorUniqueButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:onClick="onMemoryRead"
-            android:text="MR"
+            android:text="@string/memory_read_label"
             android:theme="@style/calculatorUniqueButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:onClick="onMemoryClear"
-            android:text="MC"
+            android:text="@string/memory_clear_label"
             android:theme="@style/calculatorUniqueButtonViewStyle" />
 
         <Button
@@ -72,26 +72,25 @@
         <Button
             android:layout_width="75dp"
             android:onClick="onFullDeleteClick"
-            android:text="AC"
+            android:text="@string/full_clear_text_view_label"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onLastDeleteClick"
-            android:text="Delete"
+            android:text="@string/delete_label"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:onClick="onEnterClick"
-            android:text="Enter"
+            android:text="@string/enter_label"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
-            android:hint="/"
             android:onClick="onOperatorClick"
-            android:text="/"
+            android:text="@string/divide_symbol"
             android:textStyle="bold"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
@@ -99,55 +98,53 @@
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="7"
+            android:text="@string/seven"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="8"
+            android:text="@string/eight"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="9"
+            android:text="@string/nine"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
 
         <Button
-            android:hint="*"
             android:onClick="onOperatorClick"
-            android:text="*"
+            android:text="@string/multiply_symbol"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="4"
+            android:text="@string/four"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="5"
+            android:text="@string/five"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="6"
+            android:text="@string/six"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
-            android:hint="-"
             android:onClick="onOperatorClick"
-            android:text="-"
+            android:text="@string/minus_symbol"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
 
@@ -155,27 +152,26 @@
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="1"
+            android:text="@string/one"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="2"
+            android:text="@string/two"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="3"
+            android:text="@string/three"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
-            android:hint="+"
             android:onClick="onOperatorClick"
-            android:text="+"
+            android:text="@string/plus_symbol"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
         <Button
@@ -187,22 +183,20 @@
             android:layout_width="75dp"
             android:gravity="center"
             android:onClick="onDigitClick"
-            android:text="0"
+            android:text="@string/zero"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="75dp"
             android:gravity="center"
-            android:hint="."
             android:onClick="onOperatorClick"
-            android:text="."
+            android:text="@string/dot"
             android:theme="@style/calculatorDigitButtonViewStyle" />
 
         <Button
             android:layout_width="90dp"
-            android:hint="%"
             android:onClick="onOperatorClick"
-            android:text="%"
+            android:text="@string/percentage"
             android:theme="@style/calculatorOperatorButtonViewStyle" />
 
 
