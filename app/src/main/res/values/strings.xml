@@ -70,4 +70,5 @@
     <string name="light_theme_label">Light Theme</string>
     <string name="input_text_with_colon">Input text:</string>
     <string name="preferences_reset_textt">Preferences reset!</string>
+    <string name="stored_text_text">"Stored text: "</string>
 </resources>
