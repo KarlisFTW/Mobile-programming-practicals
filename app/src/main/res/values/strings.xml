@@ -6,7 +6,8 @@
     <string name="practical4_toolbar_title">Calculator</string>
     <string name="practical2_1_toolbar_title">2nd Activity</string>
     <string name="practical2_toolbar_title">1-st Activity</string>
-    <string name="practical1_toolbar_title">Hello World</string>
+    <string name="practical1_toolbar_title">Image</string>
+    <string name="practical1_1_toolbar_title">Audio</string>
     <string name="main_toolbar_title">Mobile Programming I</string>
     <string name="practicals_label">Practicals</string>
     <string name="practical_1_button_label">Practical 1</string>
@@ -71,4 +72,14 @@
     <string name="input_text_with_colon">Input text:</string>
     <string name="preferences_reset_textt">Preferences reset!</string>
     <string name="stored_text_text">"Stored text: "</string>
+    <string name="practical1_take_picture">Take picture</string>
+    <string name="menu_back_to_image">Image</string>
+    <string name="menu_delete_audio">Delete</string>
+    <string name="menu_show_images">Show Images</string>
+    <string name="menu_go_to_audio">Audio</string>
+    <string name="menu_delete_images">Delete</string>
+    <string name="image_description">Image description</string>
+    <string name="audio_record">Record</string>
+    <string name="record_name">Record %1$d</string>
+    <string name="record_date">%1$s</string>
 </resources>

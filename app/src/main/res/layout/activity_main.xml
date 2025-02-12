@@ -38,31 +38,11 @@
         android:id="@+id/bt_practical_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:text="@string/practical_2_button_label"
         android:theme="@style/buttonViewStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_practical_1" />
-
-    <Button
-        android:id="@+id/bt_practical_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/practical_3_button_label"
-        android:theme="@style/buttonViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_practical_2" />
-
-    <Button
-        android:id="@+id/bt_practical_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/practical_4_button_label"
-        android:theme="@style/buttonViewStyle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_practical_3" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

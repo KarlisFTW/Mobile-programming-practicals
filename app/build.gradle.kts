@@ -1,16 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.mobileprogrammingpracticals"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.mobileprogrammingpracticals"
         minSdk = 26
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -40,7 +41,17 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    //implementation(libs.androidx.datastore.preferences.core.jvm)
+
+    //newly added
+
+    //implementation ("androidx.constraintlayout:constraintlayout:2.1.4")  // or the latest version
+    implementation (libs.firebase.analytics.ktx)
+    implementation (libs.androidx.viewpager2)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+
+
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.datastore.preferences.core)
     testImplementation(libs.junit)
