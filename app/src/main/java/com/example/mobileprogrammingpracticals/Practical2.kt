@@ -94,13 +94,13 @@ class Practical2 : AppCompatActivity(), OnMapReadyCallback {
             if (location != null) {
                 val myLocation = LatLng(location.latitude, location.longitude)
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15f)) // Zoom to current location
-                map.addMarker(MarkerOptions().position(myLocation).title("My Location"))
+                map.addMarker(MarkerOptions().position(myLocation).title(getString(R.string.my_location)))
             }
         }
 
         // Add a predefined place marker
         val placeLocation = LatLng(57.538463, 25.425969) // Example: Riga, Latvia
-        map.addMarker(MarkerOptions().position(placeLocation).title("Valmieras Svētā Sīmaņa evaņgēliski luteriskā baznīca"))
+        map.addMarker(MarkerOptions().position(placeLocation).title(getString(R.string.valmieras_baznica)))
     }
 
     private fun checkLocationSettings() {

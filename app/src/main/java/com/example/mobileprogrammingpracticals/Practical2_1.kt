@@ -29,7 +29,7 @@ class Practical2_1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_practical2_1)
-        Log.e("Practical2_1", "onCreate called")
+        Log.e(getString(R.string.practical2_1), getString(R.string.oncreate_called))
         toolbar = findViewById(R.id.tb_main)
         toolbarText = findViewById(R.id.tb_title_text)
         recyclerView = findViewById(R.id.rv_api_data)
@@ -62,7 +62,7 @@ class Practical2_1 : AppCompatActivity() {
 
     private fun fetchDataFromAPI() {
         // Replace this URL with your chosen API endpoint
-        val url = "https://jsonplaceholder.typicode.com/posts"
+        val url = getString(R.string.https_jsonplaceholder_typicode_com_posts)
 
         // Create a new Volley request queue
         val queue = Volley.newRequestQueue(this)

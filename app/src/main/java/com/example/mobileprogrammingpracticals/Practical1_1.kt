@@ -20,8 +20,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mobileprogrammingpracticals.AudioAdapter
-import com.example.mobileprogrammingpracticals.R
 import com.google.firebase.analytics.FirebaseAnalytics
 import java.io.File
 
@@ -80,7 +78,7 @@ class Practical1_1 : AppCompatActivity() {
         recordButton = findViewById(R.id.record_button)
         recordButton.setOnClickListener {
             if (checkPermissions()) {
-                logEvent("Record_Audio")
+                logEvent(getString(R.string.record_audio))
                 recordAudio()
             }
         }
@@ -141,12 +139,12 @@ class Practical1_1 : AppCompatActivity() {
             }
             mediaRecorder = null
             isRecording = false
-            recordButton.text = "Start Recording"
+            recordButton.text = getString(R.string.start_recording)
 
             audioFiles.add(outputFile!!)
             audioAdapter.notifyItemInserted(audioFiles.size - 1)
 
-            logEvent("Audio_Recorded")
+            logEvent(getString(R.string.audio_recorded))
         } else {
             outputFile = "${externalCacheDir?.absolutePath}/audio_${System.currentTimeMillis()}.mp3"
 
@@ -160,12 +158,12 @@ class Practical1_1 : AppCompatActivity() {
                     prepare()
                     start()
                     isRecording = true
-                    recordButton.text = "Stop Recording"
+                    recordButton.text = getString(R.string.stop_recording)
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }
-            logEvent("Recording_Started")
+            logEvent(getString(R.string.recording_started))
         }
     }
 
@@ -176,7 +174,7 @@ class Practical1_1 : AppCompatActivity() {
         audioFiles.clear()
         audioAdapter.notifyDataSetChanged()
 
-        logEvent("Delete_Audio")
+        logEvent(getString(R.string.delete_audio))
     }
 
     private fun loadAudioFiles() {
@@ -204,13 +202,13 @@ class Practical1_1 : AppCompatActivity() {
         }
 
         Toast.makeText(this, "Playing: ${getRecordName(audioFile)}", Toast.LENGTH_SHORT).show()
-        logEvent("Audio_Played")
+        logEvent(getString(R.string.audio_played))
     }
 
     // Helper function to extract record name (e.g., "Recording 1")
     private fun getRecordName(audioFile: String): String {
         val index = audioFiles.indexOf(audioFile)
-        return if (index != -1) "Recording ${index + 1}" else "Unknown Recording"
+        return if (index != -1) "Recording ${index + 1}" else getString(R.string.unknown_recording)
     }
 
     private fun logEvent(eventName: String) {
@@ -229,7 +227,7 @@ class Practical1_1 : AppCompatActivity() {
         return when (item.itemId) {
             R.id.menu_back_to_image -> {
                 finish()
-                logEvent("Open_Image_Activity")
+                logEvent(getString(R.string.open_image_activity))
                 true
             }
 

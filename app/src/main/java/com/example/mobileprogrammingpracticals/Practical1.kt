@@ -23,7 +23,6 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import java.io.File
 import java.io.FileOutputStream
 import android.Manifest
-import android.os.Build
 import android.view.WindowManager
 
 class Practical1 : AppCompatActivity() {
@@ -88,7 +87,8 @@ class Practical1 : AppCompatActivity() {
                 openCamera()
             } else {
                 // Permission denied
-                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.camera_permission_denied), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -102,17 +102,17 @@ class Practical1 : AppCompatActivity() {
         when (item.itemId) {
             R.id.menu_go_to_audio -> {
                 startActivity(Intent(this, Practical1_1::class.java))
-                logEvent("Open_Audio_Activity")
+                logEvent(getString(R.string.open_audio_activity))
                 return true
             }
             R.id.menu_show_images -> {
                 if(imageList.isEmpty()) {
-                    Toast.makeText(this, "No images to show", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.no_images_to_show), Toast.LENGTH_SHORT).show()
                 }else{
 
                     viewPager.visibility = View.VISIBLE
                     viewPager.adapter = ImageAdapter(this, imageList)
-                    logEvent("Show_Images")
+                    logEvent(getString(R.string.show_images))
                 }
 
 
@@ -120,7 +120,7 @@ class Practical1 : AppCompatActivity() {
             }
             R.id.menu_delete_images -> {
                 deleteImages()
-                logEvent("Delete_Images")
+                logEvent(getString(R.string.delete_images))
                 return true
             }
         }
@@ -136,7 +136,7 @@ class Practical1 : AppCompatActivity() {
             imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
             fos.close()
             imageList.add(file.absolutePath)
-            logEvent("Picture_Taken")
+            logEvent(getString(R.string.picture_taken))
         }
     }
     @SuppressLint("NotifyDataSetChanged")
