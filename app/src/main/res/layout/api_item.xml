@@ -14,11 +14,11 @@
 
         <!-- Left-side mic icon -->
         <ImageView
-            android:id="@+id/iv_audio_icon"
+            android:id="@+id/iv_folder_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:contentDescription="@string/microphone_icon"
-            android:src="@drawable/ic_mic"
+            android:contentDescription="@string/folder_icon_image_description"
+            android:src="@drawable/ic_folder"
             android:layout_marginEnd="10dp"/>
 
         <!-- Right-side text container -->
@@ -31,7 +31,7 @@
                 android:id="@+id/tv_record_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/audio_record_1"
+                android:text="@string/api_data_name"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
@@ -39,7 +39,7 @@
                 android:id="@+id/tv_record_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/audio_record_date"
+                android:text="@string/api_data_date"
                 android:textSize="14sp"
                 android:textColor="#666666"/>
         </LinearLayout>

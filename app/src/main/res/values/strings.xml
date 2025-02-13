@@ -4,8 +4,8 @@
     <string name="practical3_toolbar_title">Repository G-05</string>
     <string name="practical3_1_toolbar_title">Second Activity</string>
     <string name="practical4_toolbar_title">Calculator</string>
-    <string name="practical2_1_toolbar_title">2nd Activity</string>
-    <string name="practical2_toolbar_title">1-st Activity</string>
+    <string name="practical2_1_toolbar_title">Map Reader</string>
+    <string name="practical2_toolbar_title">Google Map</string>
     <string name="practical1_toolbar_title">Image</string>
     <string name="practical1_1_toolbar_title">Audio</string>
     <string name="main_toolbar_title">Mobile Programming I</string>
@@ -82,4 +82,12 @@
     <string name="audio_record">Record</string>
     <string name="record_name">Record %1$d</string>
     <string name="record_date">%1$s</string>
+    <string name="menu_go_to_map_reader">Reader</string>
+    <string name="menu_go_back_to_maps">Map</string>
+    <string name="microphone_icon">microphone icon</string>
+    <string name="audio_record_1">Record 1</string>
+    <string name="audio_record_date">12/02/2025 14:30</string>
+    <string name="api_data_date">April 1st, 2024</string>
+    <string name="api_data_name">Data 01</string>
+    <string name="folder_icon_image_description">folder icon</string>
 </resources>
