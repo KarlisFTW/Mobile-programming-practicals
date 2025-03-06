@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
-   private lateinit var practical1: Button
+    private lateinit var practical1: Button
     private lateinit var practical2: Button
     lateinit var toolbar: Toolbar
     private lateinit var toolbarText: TextView
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     private fun hideSystemUI() {
         window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or

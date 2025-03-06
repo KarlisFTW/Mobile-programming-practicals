@@ -4,19 +4,19 @@
 
     <item
         android:id="@+id/menu_go_to_audio"
-        android:title="@string/menu_go_to_audio"
         android:orderInCategory="100"
+        android:title="@string/menu_go_to_audio"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_show_images"
-        android:title="@string/menu_show_images"
         android:orderInCategory="200"
+        android:title="@string/menu_show_images"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_delete_images"
-        android:title="@string/menu_delete_images"
         android:orderInCategory="300"
+        android:title="@string/menu_delete_images"
         app:showAsAction="never" />
 </menu>

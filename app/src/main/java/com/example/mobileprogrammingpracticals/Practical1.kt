@@ -18,7 +18,6 @@ import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
-import com.example.androidapp.ImageAdapter
 import com.google.firebase.analytics.FirebaseAnalytics
 import java.io.File
 import java.io.FileOutputStream
@@ -57,6 +56,7 @@ class Practical1 : AppCompatActivity() {
             requestCameraPermission()
         }
     }
+
     private fun hideSystemUI() {
         window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
@@ -65,21 +65,35 @@ class Practical1 : AppCompatActivity() {
                 )
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
+
     private fun requestCameraPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
             // Request permission if not granted
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CAMERA),
+                REQUEST_CAMERA_PERMISSION
+            )
         } else {
             // Permission already granted, open camera
             openCamera()
         }
     }
+
     private fun openCamera() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -87,11 +101,14 @@ class Practical1 : AppCompatActivity() {
                 openCamera()
             } else {
                 // Permission denied
-                Toast.makeText(this,
-                    getString(R.string.camera_permission_denied), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.camera_permission_denied), Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.picturemenu, menu)
@@ -105,10 +122,12 @@ class Practical1 : AppCompatActivity() {
                 logEvent(getString(R.string.open_audio_activity))
                 return true
             }
+
             R.id.menu_show_images -> {
-                if(imageList.isEmpty()) {
-                    Toast.makeText(this, getString(R.string.no_images_to_show), Toast.LENGTH_SHORT).show()
-                }else{
+                if (imageList.isEmpty()) {
+                    Toast.makeText(this, getString(R.string.no_images_to_show), Toast.LENGTH_SHORT)
+                        .show()
+                } else {
 
                     viewPager.visibility = View.VISIBLE
                     viewPager.adapter = ImageAdapter(this, imageList)
@@ -118,6 +137,7 @@ class Practical1 : AppCompatActivity() {
 
                 return true
             }
+
             R.id.menu_delete_images -> {
                 deleteImages()
                 logEvent(getString(R.string.delete_images))
@@ -139,6 +159,7 @@ class Practical1 : AppCompatActivity() {
             logEvent(getString(R.string.picture_taken))
         }
     }
+
     @SuppressLint("NotifyDataSetChanged")
 
     private fun deleteImages() {

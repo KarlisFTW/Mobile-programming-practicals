@@ -22,7 +22,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
 class Practical2 : AppCompatActivity(), OnMapReadyCallback {
-
     private lateinit var toolbar: Toolbar
     private lateinit var toolbarText: TextView
     private lateinit var map: GoogleMap
@@ -93,14 +92,23 @@ class Practical2 : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
             if (location != null) {
                 val myLocation = LatLng(location.latitude, location.longitude)
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 15f)) // Zoom to current location
-                map.addMarker(MarkerOptions().position(myLocation).title(getString(R.string.my_location)))
+                map.moveCamera(
+                    CameraUpdateFactory.newLatLngZoom(
+                        myLocation,
+                        15f
+                    )
+                ) // Zoom to current location
+                map.addMarker(
+                    MarkerOptions().position(myLocation).title(getString(R.string.my_location))
+                )
             }
         }
 
         // Add a predefined place marker
         val placeLocation = LatLng(57.538463, 25.425969) // Example: Riga, Latvia
-        map.addMarker(MarkerOptions().position(placeLocation).title(getString(R.string.valmieras_baznica)))
+        map.addMarker(
+            MarkerOptions().position(placeLocation).title(getString(R.string.valmieras_baznica))
+        )
     }
 
     private fun checkLocationSettings() {
@@ -147,6 +155,7 @@ class Practical2 : AppCompatActivity(), OnMapReadyCallback {
                 startActivity(Intent(this, Practical2_1::class.java))
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

@@ -4,14 +4,14 @@
 
     <item
         android:id="@+id/menu_back_to_image"
-        android:title="@string/menu_back_to_image"
         android:orderInCategory="100"
+        android:title="@string/menu_back_to_image"
         app:showAsAction="never" />
-
 
     <item
         android:id="@+id/menu_delete_audio"
-        android:title="@string/menu_delete_audio"
         android:orderInCategory="300"
+        android:title="@string/menu_delete_audio"
         app:showAsAction="never" />
+
 </menu>

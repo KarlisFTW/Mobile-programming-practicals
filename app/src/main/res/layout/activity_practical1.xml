@@ -28,7 +28,6 @@
         android:layout_height="300dp"
         android:layout_below="@id/btnTakePicture"
         android:visibility="gone"
-
         app:layout_constraintBottom_toTopOf="@+id/btnTakePicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tb_main"
         android:layout_width="match_parent"
@@ -15,8 +14,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <!-- Text next to the icon -->
     <TextView
         android:id="@+id/tb_title_text"
         android:layout_width="wrap_content"

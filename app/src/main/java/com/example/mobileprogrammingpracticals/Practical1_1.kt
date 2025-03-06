@@ -6,9 +6,6 @@ import android.media.MediaPlayer
 import android.media.MediaRecorder
 import android.os.Build
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -24,7 +21,6 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import java.io.File
 
 class Practical1_1 : AppCompatActivity() {
-
     private lateinit var toolbar: Toolbar
     private lateinit var toolbarText: TextView
     private lateinit var firebaseAnalytics: FirebaseAnalytics
@@ -37,8 +33,6 @@ class Practical1_1 : AppCompatActivity() {
     private var outputFile: String? = null
     private var isRecording = false
     private var mediaPlayer: MediaPlayer? = null
-
-    private var currentlyPlayingPosition: Int? = null  // Variable to track currently playing audio
 
     companion object {
         private const val REQUEST_RECORD_AUDIO_PERMISSION = 1
@@ -61,17 +55,11 @@ class Practical1_1 : AppCompatActivity() {
         rvAudio = findViewById(R.id.rv_audio)
         rvAudio.layoutManager = LinearLayoutManager(this)
 
-        // Pass the currentlyPlayingPosition to the adapter
-        audioAdapter = AudioAdapter(
-            audioFiles,
-            currentlyPlayingPosition ?: -1,
-            object : AudioItemClickListener {
-                override fun onAudioClicked(audioFile: String, position: Int) {
-                    playAudio(audioFile)
-                }
-            })
-
-        // Passing currentlyPlayingPosition
+        audioAdapter = AudioAdapter(audioFiles, object : AudioItemClickListener {
+            override fun onAudioClicked(audioFile: String, position: Int) {
+                playAudio(audioFile)
+            }
+        })
 
         rvAudio.adapter = audioAdapter
 
@@ -118,19 +106,6 @@ class Practical1_1 : AppCompatActivity() {
         }
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == REQUEST_RECORD_AUDIO_PERMISSION) {
-            if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
-                recordAudio()
-            }
-        }
-    }
-
     private fun recordAudio() {
         if (isRecording) {
             mediaRecorder?.apply {
@@ -141,8 +116,10 @@ class Practical1_1 : AppCompatActivity() {
             isRecording = false
             recordButton.text = getString(R.string.start_recording)
 
-            audioFiles.add(outputFile!!)
-            audioAdapter.notifyItemInserted(audioFiles.size - 1)
+            outputFile?.let {
+                audioFiles.add(it)
+                audioAdapter.notifyItemInserted(audioFiles.size - 1)
+            }
 
             logEvent(getString(R.string.audio_recorded))
         } else {
@@ -186,7 +163,7 @@ class Practical1_1 : AppCompatActivity() {
     }
 
     private fun playAudio(audioFile: String) {
-        mediaPlayer?.release() // Release any existing media player instance
+        mediaPlayer?.release()
 
         mediaPlayer = MediaPlayer().apply {
             setDataSource(audioFile)
@@ -205,7 +182,6 @@ class Practical1_1 : AppCompatActivity() {
         logEvent(getString(R.string.audio_played))
     }
 
-    // Helper function to extract record name (e.g., "Recording 1")
     private fun getRecordName(audioFile: String): String {
         val index = audioFiles.indexOf(audioFile)
         return if (index != -1) "Recording ${index + 1}" else getString(R.string.unknown_recording)
@@ -216,37 +192,8 @@ class Practical1_1 : AppCompatActivity() {
         bundle.putString("event_name", eventName)
         firebaseAnalytics.logEvent(eventName, bundle)
     }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.audiomenu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_back_to_image -> {
-                finish()
-                logEvent(getString(R.string.open_image_activity))
-                true
-            }
-
-            R.id.menu_delete_audio -> {
-                deleteAudio()
-                true
-            }
-
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    override fun onStop() {
-        super.onStop()
-        mediaPlayer?.release() // Release media player resources when activity is stopped
-    }
 }
 
 interface AudioItemClickListener {
     fun onAudioClicked(audioFile: String, position: Int)
 }
-

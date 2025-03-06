@@ -13,13 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import org.json.JSONArray
 import org.json.JSONObject
 
 class Practical2_1 : AppCompatActivity() {
-
     private lateinit var toolbar: Toolbar
     private lateinit var toolbarText: TextView
     private lateinit var recyclerView: RecyclerView
@@ -41,13 +38,10 @@ class Practical2_1 : AppCompatActivity() {
         toolbar.setNavigationOnClickListener { finish() }
 
         hideSystemUI()
-
-        // Set up the RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        apiAdapter = ApiAdapter(postsList, 0)
+        apiAdapter = ApiAdapter(postsList)
         recyclerView.adapter = apiAdapter
 
-        // Make the API request when the activity is created
         fetchDataFromAPI()
     }
 
@@ -91,7 +85,6 @@ class Practical2_1 : AppCompatActivity() {
         queue.add(jsonArrayRequest)
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.readmenu, menu)
         return true
@@ -103,6 +96,7 @@ class Practical2_1 : AppCompatActivity() {
                 finish()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

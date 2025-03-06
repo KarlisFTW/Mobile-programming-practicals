@@ -1,4 +1,4 @@
-package com.example.androidapp
+package com.example.mobileprogrammingpracticals
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mobileprogrammingpracticals.R
 
 class ImageAdapter(private val context: Context, private val imageList: List<String>) :
     RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
